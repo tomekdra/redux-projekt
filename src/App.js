@@ -1,14 +1,10 @@
 import React from "react";
-import {createStore} from "redux";
-import { composeWithDevTools } from 'redux-devtools-extension';
-import rootReducer from "./reducers";
+import MoviesContainer from "./movies/components/MoviesContainer";
+import MoviesForm from "./movies/components/MoviesForm";
+import ActorsContainer from "./actors/components/ActorsContainer";
+import ActorsForm from "./actors/components/ActorsForm";
 
-import { movieActions} from "./movies/duck";
 
-const store = createStore(rootReducer, composeWithDevTools());
-window.store = store;
-
-store.dispatch(movieActions.add("Romunualdo"))
 
 class App extends React.Component {
 
@@ -16,7 +12,11 @@ class App extends React.Component {
     render() {
         return (
             <div>
-
+                <MoviesForm/>
+               <MoviesContainer/>
+               <div>##############</div>
+                <ActorsForm />
+                <ActorsContainer />
             </div>
         );
     }
