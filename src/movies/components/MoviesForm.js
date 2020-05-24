@@ -1,5 +1,5 @@
 import React from "react";
-import {connect} from "react-redux";
+import {useDispatch} from "react-redux";
 import actions from '../duck/actions'
 
 
@@ -7,9 +7,11 @@ const MoviesForm = (props) => {
 
     const movieInput = React.createRef();
 
+    const dispatch = useDispatch();
+
     const addMovie = (event) => {
         event.preventDefault()
-        props.add(movieInput.current.value)
+        dispatch(actions.add(movieInput.current.value))
         movieInput.current.value = ''
     }
 
@@ -19,8 +21,4 @@ const MoviesForm = (props) => {
     </form>
 }
 
-const mapDispatchToProps = dispatch => ({
-    add: movie => dispatch(actions.add(movie))
-})
-
-export default connect(null, mapDispatchToProps)(MoviesForm)
+export default MoviesForm

@@ -1,8 +1,10 @@
 import React from "react";
-import {connect} from "react-redux";
+import {useSelector} from "react-redux";
 
 
-const ActorsContainer = ({actors}) => {
+const ActorsContainer = () => {
+
+    const actors = useSelector(state => state.actors);
 
     return (
         <ul>
@@ -11,8 +13,5 @@ const ActorsContainer = ({actors}) => {
     )
 }
 
-const mapStateToProps = state => ({
-    actors: state.actors
-})
 
-export default connect(mapStateToProps, {})(ActorsContainer)
+export default ActorsContainer
